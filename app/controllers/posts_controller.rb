@@ -31,6 +31,22 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @post }
     end
   end
+  
+  def testadd
+    @post = Post.new(
+	  :title => 'testadd', 
+	  :link => 'testadd.com',
+	  :author => 'a',
+	  :description => 'd',
+	  :date => DateTime.new(2011, 10, 2)
+	  )
+	@post.save
+	
+    respond_to do |format|
+      format.html { redirect_to(posts_url) }
+      format.xml  { head :ok }
+    end
+  end
 
   # GET /posts/1/edit
   def edit

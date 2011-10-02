@@ -1,3 +1,5 @@
+require 'extract_tianya.rb'
+
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
@@ -42,6 +44,24 @@ class PostsController < ApplicationController
 	  )
 	@post.save
 	
+    respond_to do |format|
+      format.html { redirect_to(posts_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def extract
+    content = open("H:/zj/projects/excan_rails/app/controllers/tianya.htm").read
+    items = extract_tianya_items(content)
+    items.each { |item|
+      Post.new(
+	    :title => item.title, 
+	    :link => item.link,
+	    :author => item.author,
+	    :description => item.description
+	    #:date => item.date
+	    ).save
+	}
     respond_to do |format|
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }

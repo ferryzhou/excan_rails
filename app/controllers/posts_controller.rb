@@ -58,8 +58,8 @@ class PostsController < ApplicationController
 	    :title => item.title, 
 	    :link => item.link,
 	    :author => item.author,
-	    :description => item.description
-	    #:date => item.date
+	    :description => item.description,
+	    :date => item.date
 	    ).save
 	}
     respond_to do |format|

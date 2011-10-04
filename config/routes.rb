@@ -1,7 +1,10 @@
 ExcanRails::Application.routes.draw do
 
   resources :posts do
-    get 'testadd', :on => :collection 
+    collection do
+	  get 'testadd'
+	  get 'extract'
+	end
   end
   
   # The priority is based upon order of creation:

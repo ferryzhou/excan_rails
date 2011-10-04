@@ -1,30 +1,20 @@
 <h1>Listing posts</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Link</th>
-    <th>Author</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class = 'content'>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.link %></td>
-    <td><%= post.author %></td>
-    <td><%= post.description %></td>
-    <td><%= post.date %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div class = 'entry'>
+    <div class = 'entry_title'><a href = <%= post.link %> target="_blank"><%= post.title %></a> </div>
+	<div class = 'entry_author_date'><%= post.author %> &nbsp; &nbsp; &nbsp; <%= post.date %></div>
+    <div class = 'entry_content'> <%= post.description %></div>
+	<div class = 'action'>
+	  <%= link_to 'Show', post %> &nbsp; 
+	  <%= link_to 'Edit', edit_post_path(post) %> &nbsp; 
+	  <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+  </div>
 <% end %>
-</table>
+</div>
 
 <br />
 

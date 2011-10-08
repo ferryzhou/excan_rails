@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   end
   
   def extract
-    content = open("H:/zj/projects/excan_rails/app/controllers/tianya.htm").read
+    content = open("app/controllers/tianya.htm").read
     items = extract_tianya_items(content)
     items.each { |item|
       Post.new(

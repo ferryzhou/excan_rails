@@ -20,7 +20,8 @@ def extract_tianya_items(content)
       'link'  => link['href'],
       'author' => related.at('a').inner_html,
       'date'  => text[(ind + 6) .. (ind + 21)],
-      'description' => e.at('p.summary').inner_html
+      'description' => e.at('p.summary').inner_html,
+	  'source' => 'tianya'
   })
   end
 

@@ -4,7 +4,7 @@
 
 <% @posts.each do |post| %>
   <div class = 'entry'>
-    <div class = 'entry_title'><a href = <%= post.link %> target="_blank"><%= post.title %></a> </div>
+    <div class = 'entry_title'><a href = <%= post.link %> target="_blank"><%= post.title %></a> - <%= post.source %></div>
 	<div class = 'entry_author_date'><%= post.author %> &nbsp; &nbsp; &nbsp; <%= post.date %></div>
     <div class = 'entry_content'> <%= post.description %></div>
 	<div class = 'action'>

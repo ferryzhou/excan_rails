@@ -2,6 +2,8 @@
 
 <div class = 'content'>
 
+<%= will_paginate %>
+
 <% @posts.each do |post| %>
   <div class = 'entry'>
     <div class = 'entry_title'><a href = <%= post.link %> target="_blank"><%= post.title %></a> - <%= post.source %></div>
@@ -14,6 +16,9 @@
 	</div>
   </div>
 <% end %>
+
+<%= will_paginate %>
+
 </div>
 
 <br />

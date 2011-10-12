@@ -9,6 +9,8 @@ gem 'sqlite3', '1.3.3'
 
 gem 'hpricot'
 
+gem 'will_paginate', '3.0.pre2'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

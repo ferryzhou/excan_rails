@@ -1,2 +1,1 @@
-add subcategories based on keywords match
-first implementation use basic search
+count number of posts for each search words

@@ -1,7 +1,7 @@
 .wrapper { background:#FFF; border:0px solid #ddd; width:900px; margin:1px auto 0px auto; }
 .header { background:#FFF; font-size: 14px; height:25px; color:blue; text-align:left; margin-top: 10px;  margin-bottom: 20px;}
 .header_item {float: left; color:blue; margin-right: 5px; margin-top: 7px;}
-.header_pagination {float: left; color:blue; margin-left: 100px; margin-top: 7px;}
+.header_pagination {float: left; color:blue; margin-left: 5px; margin-top: 7px;}
 .title{ font-size: 30px; font-weight: bold; height:30px; margin-bottom: 10px; margin-top: 20px; text-align:left; padding-bottom: 2px; }
 .main { float:left; margin-left: 10px; padding:5px 10px 5px 0; background:#FFF; width:750px; font-size: 14px; }
 .sidebar_left { float:left; width: 120px; border-right: 1px solid #dddddd; padding-right: 5px}

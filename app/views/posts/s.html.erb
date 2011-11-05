@@ -1,0 +1,26 @@
+<h1>Listing posts</h1>
+
+<div class = 'content'>
+
+<%= will_paginate %>
+
+<% @posts.each do |post| %>
+  <div class = 'entry'>
+    <div class = 'entry_title'><a href = <%= post.link %> target="_blank"><%= post.title %></a> - <%= post.source %></div>
+	<div class = 'entry_author_date'><%= post.author %> &nbsp; &nbsp; &nbsp; <%= post.date %></div>
+    <div class = 'entry_content'> <%= post.description %></div>
+	<div class = 'action'>
+	  <%= link_to 'Show', post %> &nbsp; 
+	  <%= link_to 'Edit', edit_post_path(post) %> &nbsp; 
+	  <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+  </div>
+<% end %>
+
+<%= will_paginate %>
+
+</div>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

@@ -69,6 +69,17 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # search
+  def s
+    q = "%#{params[:key]}%"
+    @posts = Post.where("title like ?", q).paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @posts }
+    end
+  end
 
   # GET /posts/1/edit
   def edit

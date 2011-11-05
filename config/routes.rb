@@ -4,6 +4,7 @@ ExcanRails::Application.routes.draw do
     collection do
 	  get 'testadd'
 	  get 'extract'
+	  get 's'
 	end
   end
   

@@ -1,17 +1,26 @@
-<h1>Listing posts</h1>
+<div class='wrapper'>
+<div class = 'header'>
+  <div class = 'header_item'><a href='http://www.tianya.cn/new/techforum/ArticlesList.asp?pageno=1&iditem=100&part=0&subitem=%D6%D7%C1%F6%BF%C6'>天涯肿瘤科论坛</a></div>
+  <div class = 'header_pagination'>
+    <%= will_paginate %>
+  </div>
+</div>
 
-<div class = 'content'>
+<div class = 'sidebar_left'>
+  <div class = 'main_entry'><%= params[:key] %></div>
+  <div class = 'related_entry'><a href='#id.htm'>直肠癌</a></div>
+  <div class = 'related_entry'><a href='#id.htm'>#title</a></div>
+</div>
+<div class = 'main'>
 
-<%= will_paginate %>
 
 <% @posts.each do |post| %>
   <div class = 'entry'>
-    <div class = 'entry_title'><a href = <%= post.link %> target="_blank"><%= post.title %></a> - <%= post.source %></div>
-	<div class = 'entry_author_date'><%= post.author %> &nbsp; &nbsp; &nbsp; <%= post.date %></div>
-    <div class = 'entry_content'> <%= post.description %></div>
-	<div class = 'action'>
-	  <%= link_to 'Show', post %> &nbsp; 
-	  <%= link_to 'Edit', edit_post_path(post) %> &nbsp; 
+    <div class = 'entry_title'>
+	  <a href = <%= post.link %> target="_blank"><%= post.title %></a>
+	</div>
+	<div class = 'entry_other_fields'>
+	  <%= post.author %> &nbsp; &nbsp; &nbsp; <%= post.date %> &nbsp; &nbsp; &nbsp; 
 	  <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
 	</div>
   </div>
@@ -19,8 +28,10 @@
 
 <%= will_paginate %>
 
-</div>
-
 <br />
 
 <%= link_to 'New Post', new_post_path %>
+
+
+</div>
+</div>

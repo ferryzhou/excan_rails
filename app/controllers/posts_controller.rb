@@ -71,9 +71,18 @@ class PostsController < ApplicationController
     end
   end
   
+  def update_words_count
+    @words = Cancerword.all
+	@words.each { |word|
+	  word.count = Post.where("title like ?", "%#{word.name}%").size
+	  word.save
+	}
+  end
+  
   # search
   def s
-    @words = Cancerword.all
+    update_words_count
+    @words = Cancerword.find(:all, :order=>'count DESC')
     q = "%#{params[:key]}%"
     @posts = Post.where("title like ?", q).paginate(:page => params[:page])
 

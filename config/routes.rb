@@ -1,5 +1,7 @@
 ExcanRails::Application.routes.draw do
 
+  resources :cancerwords
+
   resources :posts do
     collection do
 	  get 'testadd'

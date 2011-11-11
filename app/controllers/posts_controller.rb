@@ -1,4 +1,5 @@
 require 'extract_tianya.rb'
+require 'cancerwords_controller.rb'
 
 class PostsController < ApplicationController
   # GET /posts
@@ -72,6 +73,7 @@ class PostsController < ApplicationController
   
   # search
   def s
+    @words = Cancerword.all
     q = "%#{params[:key]}%"
     @posts = Post.where("title like ?", q).paginate(:page => params[:page])
 

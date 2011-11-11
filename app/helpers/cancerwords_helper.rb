@@ -1,0 +1,2 @@
+module CancerwordsHelper
+end

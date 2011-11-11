@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @cancerword.name %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @cancerword.count %>
+</p>
+
+
+<%= link_to 'Edit', edit_cancerword_path(@cancerword) %> |
+<%= link_to 'Back', cancerwords_path %>

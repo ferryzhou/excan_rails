@@ -35,7 +35,8 @@
 <% @posts.each do |post| %>
   <div class = 'entry'>
     <div class = 'entry_title'>
-	  <a href = <%= post.link %> target="_blank"><%= post.title %></a>
+	  <a href = <%= post.link %> target="_blank"><%= post.title[11..-1] %></a>
+	  <% if (post.date.to_i - Time.now.to_i).abs < 3600 * 24 * 10 %> <img src='/images/new2.jpg' height = 20px/> <% end %>
 	</div>
 	<div class = 'entry_other_fields'>
 	  <%= post.author %> &nbsp; &nbsp; &nbsp; <%= post.date %> &nbsp; &nbsp; &nbsp; 

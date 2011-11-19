@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CancerwordsController < ApplicationController
   # GET /cancerwords
   # GET /cancerwords.xml

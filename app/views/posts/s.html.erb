@@ -15,6 +15,8 @@
 <div class = 'sidebar_left'>
   <div class = 'related_entry'><a href='/posts/s?key='>所有</a></div>
   <br/>
+  <div class = 'related_entry'><%= link_to '设置词条', '/cancerwords' %></div>
+  <br/>
   <div class = 'main_entry'><%= params[:key] %></div>
   <br/>
   
@@ -24,6 +26,7 @@
     (<%= cancerword.count %>)</a>
   </div>
 <% end %>
+
 
   <br/>
   <div class = 'related_entry'><a href='http://www.tianya.cn/new/techforum/ArticlesList.asp?pageno=1&iditem=100&part=0&subitem=%D6%D7%C1%F6%BF%C6'>天涯论坛</a></div>

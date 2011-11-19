@@ -1,6 +1,11 @@
 ExcanRails::Application.routes.draw do
 
-  resources :cancerwords
+  resources :cancerwords do
+    collection do
+	  get 'f'
+	  get 'c'
+	end
+  end
 
   resources :posts do
     collection do

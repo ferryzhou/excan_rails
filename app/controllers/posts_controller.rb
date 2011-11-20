@@ -84,7 +84,10 @@ class PostsController < ApplicationController
     update_words_count
     @words = Cancerword.find(:all, :order=>'count DESC')
     q = "%#{params[:key]}%"
-    @posts = Post.where("title like ?", q).paginate(:page => params[:page])
+    #@posts = Post.where("title like ?", q).paginate(:page => params[:page])
+    #@posts = Post.order("date ASC").where("title like ?", q).paginate(:page => params[:page])
+	#@posts = Post.where("title like ?", q).paginate(:page => params[:page], :order=>"date DESC")
+	@posts = Post.find(:all, :conditions => ["title like ?", q], :order =>"date DESC").paginate(:page => params[:page])
 
     respond_to do |format|
       format.html

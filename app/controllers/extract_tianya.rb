@@ -1,9 +1,12 @@
 # encoding: utf-8
+
+#Encoding.default_external = 'UTF-8'
+
 require 'hpricot'
 require 'ostruct'
 require 'iconv'
 
-def gb2312_to_utf8(str); Iconv.iconv('utf-8', 'gb2312', str).join; end
+def gb2312_to_utf8(str); Iconv.iconv('utf-8', 'GBK', str).join; end
 
 def extract_tianya_items(content)
 
@@ -20,12 +23,46 @@ def extract_tianya_items(content)
       'title' => (link/'//text()').join(''),
       'link'  => link['href'],
       'author' => related.at('a').inner_html,
-      'date'  => text[(ind + 6) .. (ind + 21)],
+      'date'  => text[(ind + 3) .. (ind + 18)],
       'description' => e.at('p.summary').inner_html,
 	  'source' => 'tianya'
   })
   end
 
+end
+
+def extract_tianya_forum_items(content)
+  content = gb2312_to_utf8(content)
+  doc = Hpricot(content)
+  tbs = doc.search('table.listtable')
+  tbs.shift #remove first
+  puts "#{tbs.size} results:"
+  year = Time.now.year
+  tbs.collect do |e|
+    begin
+    tr = e.at('tr');
+	title_e = tr.at('td.posttitle').at('a') 
+	author_e = tr.at('td.author').at('a')
+	date_e = tr.at('td.ttime')
+    OpenStruct.new( {
+      'title' => (title_e/'//text()').join(''),
+      'link'  => title_e['href'],
+      'author' => author_e.inner_html,
+	  'author_link' => author_e['href'],
+      'date'  => "#{year}-" + date_e.inner_html,
+      'description' => '',
+	  'source' => 'tianya_forum'
+    })
+	rescue
+	  p '[Error]'
+      puts $!
+	end
+  end
+end
+
+def extract_items(content, method)
+  command = "extract_#{method}_items(content)"
+  eval(command)
 end
 
 #content = open('tianya.htm').read

@@ -1,5 +1,0 @@
-count number of posts for each search words
-
-automatically extract *癌
-
-remove duplicates

@@ -1,5 +1,6 @@
-require 'extract_tianya.rb'
+require 'extract_items.rb'
 require 'cancerwords_controller.rb'
+require 'open-uri'
 
 class PostsController < ApplicationController
   # GET /posts
@@ -52,24 +53,35 @@ class PostsController < ApplicationController
     end
   end
   
+  # extracting begin =============>
   def extract
-    content = open("app/controllers/tianya.htm").read
-    items = extract_tianya_items(content)
-    items.each { |item|
-      Post.new(
-	    :title => item.title, 
-	    :link => item.link,
+    filepath = 'http://www.tianya.cn/new/techforum/ArticlesList.asp?pageno=1&iditem=100&part=0&subitem=%D6%D7%C1%F6%BF%C6'
+    method = 'tianya_forum';
+    p "import #{filepath} ......"
+    content = open(filepath).read
+    items = extract_items(content, method)
+    ignored_count = 0; imported_count = 0;
+    items.each do |item|
+	  if !Post.where(:link => item.link).empty?; ignored_count = ignored_count+1; next; end
+      p = Post.new(
+        :title => item.title, 
+        :link => item.link,
 	    :author => item.author,
 	    :description => item.description,
 	    :date => item.date,
-		:source => item.source
-	    ).save
-	}
+	    :source => item.source
+	  )
+	  p.save
+	  imported_count = imported_count + 1;
+    end
+    p "imported #{imported_count} items; ignored #{ignored_count} items"
     respond_to do |format|
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
   end
+  
+  # extracting end =============>
   
   def update_words_count
     @words = Cancerword.all

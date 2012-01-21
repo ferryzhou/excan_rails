@@ -75,10 +75,6 @@ class PostsController < ApplicationController
 	  imported_count = imported_count + 1;
     end
     p "imported #{imported_count} items; ignored #{ignored_count} items"
-    respond_to do |format|
-      format.html { redirect_to(posts_url) }
-      format.xml  { head :ok }
-    end
   end
   
   # extracting end =============>

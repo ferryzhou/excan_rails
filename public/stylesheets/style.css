@@ -1,7 +1,8 @@
 .wrapper { background:#FFF; border:0px solid #ddd; width:900px; margin:1px auto 0px auto; }
-.header { background:#FFF; font-size: 14px; height:25px; color:blue; text-align:left; margin-top: 10px;  margin-bottom: 20px;}
-.header_item {float: left; color:blue; margin-right: 5px; margin-top: 7px;}
-.header_pagination {float: left; color:blue; margin-left: 5px; margin-top: 7px;}
+.header { background:#FFF; font-size: 14px; height:60px; color:blue; text-align:left; margin-top: 10px;  margin-bottom: 20px;}
+.header_item {float: left; color:blue; margin-right: 5px; margin-top: 47px;}
+.header_pagination {float: left; color:blue; margin-left: 5px; margin-top: 47px;}
+.logo {float: right;}
 .title{ font-size: 30px; font-weight: bold; height:30px; margin-bottom: 10px; margin-top: 20px; text-align:left; padding-bottom: 2px; }
 .main { float:left; margin-left: 10px; padding:5px 10px 5px 0; background:#FFF; width:750px; font-size: 14px; }
 .sidebar_left { float:left; width: 120px; border-right: 1px solid #dddddd; padding-right: 5px}
@@ -29,7 +30,7 @@ A:HOVER { color : green;}
 .copyright { text-align:center; }
 .update {float:left; margin-top: 20px; width: 800px; font-size: 12px}
 
-#search { float:left; height:20px; margin-right: 10px;}
+#search { float:left; height:20px; margin-right: 10px; margin-top: 40px;}
 #search input { float:left; background:#fff; width:125px; font-family:Georgia,serif; font-size:14px; font-style:italic; color:#999; line-height:18px; border:1px solid #ECEDE8; }
 #search input:focus { background:#fffff0; border:1px solid #ddd; }
 #search input.btn { background:none; border:none; margin:7px 0px 0px -23px; padding:0px; width:auto; }

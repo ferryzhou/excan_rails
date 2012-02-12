@@ -28,12 +28,20 @@ GEM
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
     activesupport (3.0.9)
+    addressable (2.2.6)
     arel (2.0.10)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    heroku (2.20.0)
+      launchy (>= 0.3.2)
+      rest-client (~> 1.6.1)
+      rubyzip
+      term-ansicolor (~> 1.0.5)
     hpricot (0.8.4)
     i18n (0.5.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -63,7 +71,23 @@ GEM
       thor (~> 0.14.4)
     rake (0.9.2)
     rdoc (3.9.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rubyzip (0.9.6.1)
+    sequel (3.20.0)
+    sinatra (1.0)
+      rack (>= 1.0)
+    sqlite3 (1.3.3)
     sqlite3 (1.3.3-x86-mingw32)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    taps (0.3.23)
+      rack (>= 1.0.1)
+      rest-client (>= 1.4.0, < 1.7.0)
+      sequel (~> 3.20.0)
+      sinatra (~> 1.0.0)
+      sqlite3-ruby (~> 1.2)
+    term-ansicolor (1.0.7)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -72,11 +96,14 @@ GEM
     will_paginate (3.0.pre2)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
+  heroku
   hpricot
   newrelic_rpm
   rails (= 3.0.9)
   sqlite3 (= 1.3.3)
+  taps
   will_paginate (= 3.0.pre2)

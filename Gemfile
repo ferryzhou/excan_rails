@@ -13,6 +13,10 @@ gem 'will_paginate', '3.0.pre2'
 
 gem 'newrelic_rpm'
 
+gem 'heroku'
+
+gem 'taps'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
